@@ -1,0 +1,29 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #212529;
+     height: 100px;
+     width: 100vw;
+     align-items: center;
+     border-bottom: 1px solid black;
+     color:seashell;
+}
+.menuItems {
+  display: flex;
+  list-style: none;
+ color: seashell;
+  margin-right: 30px; 
+  justify-content: flex-end;
+
+}
+
+.menuItems li {
+  margin-left: 15px;
+}
+
+.logo {
+  align-items: flex-end;
+  margin-left: 30px;
+  border-radius: 100%;
+  width: 6rem;
+}
