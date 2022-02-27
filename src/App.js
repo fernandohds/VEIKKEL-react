@@ -1,14 +1,12 @@
 import './App.css';
-import ItemDetailContainer from './components/ItemListContainer/ItemDetailContainer';
-// import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from "./components/NavBar/NavBar";
+import Rutas from './routes';
 
 function App() {
   return (
     <div className="App">
       
-        <NavBar/>
-      <ItemDetailContainer />
+      
+      <Rutas />
       
       
       

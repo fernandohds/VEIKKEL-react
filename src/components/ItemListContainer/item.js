@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 const Item = ({ item }) => {
+    const {id} = useParams();
+    
+
     return (
         <>
             <div className="card mb-3">
@@ -15,6 +20,9 @@ const Item = ({ item }) => {
                             <div className="card-body">
                             <h5 className="card-title">{item.name}</h5>
                             <p className="card-text">Precio: ${item.price}</p>
+                           <Link to="/item/:id">
+                            <button>Ver más</button>
+                            </Link>
                         </div>                      
                         </div>
                     </div>

@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { products } from './Items';
 import ItemDetail from './ItemDetail';
+import { useParams } from "react-router-dom";
 
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({});
+    const {id} = useParams();
+    const [productDetail, setProductDetail] = useState({});
 
     useEffect(() => {
         const getItem = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(products);
+                resolve(products[id-1]);
             }, 2000);
         });
         getItem
         .then((res) => {
-            const product = res.find(
-                (productos) => productos.id === parseInt(productos.id));
-            setItem(product);
+            
+                setProductDetail(res);
         })
         .catch((error) => {
             console.log(error);
@@ -26,7 +27,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <div>
-                <ItemDetail item = {item} /> 
+                <ItemDetail item = {productDetail} /> 
             </div>
 
         </>
