@@ -11,13 +11,13 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         const getItem = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(products[id-1]);
+                resolve(products);
             }, 2000);
         });
         getItem
         .then((res) => {
-            
-                setProductDetail(res);
+                const prod = res.find(prod => prod.id == id)
+                setProductDetail(prod);
         })
         .catch((error) => {
             console.log(error);
