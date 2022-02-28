@@ -28,7 +28,7 @@ const ItemCount = (props) => {
             <button onClick={() => setContador(add())} type="button" className="btn btn-secondary btn-sm">+</button>
             <h1>{contador}</h1>
             <button onClick={() => setContador(substract())} type="button" className="btn btn-secondary btn-sm">-</button>     
-            <button button type="button" className="btn btn-secondary btn-sm btn-ml">Agregar al carrito</button>
+            <button onClick={() => props.onAdd(contador)} button type="button" className="btn btn-secondary btn-sm btn-ml">Agregar al carrito</button>
             
             </div>     
         </div>

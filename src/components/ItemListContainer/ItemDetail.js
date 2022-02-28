@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { products } from './Items';
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ item }) => {
+    const [counter, setCounter] = useState(null);
+    const handleOnAdd = count => {
+		setCounter(count);
+	};
+
     return (
         <>
             <div className="card mb-3">
@@ -15,7 +21,14 @@ const ItemDetail = ({ item }) => {
                             <p className="card-text">Precio: ${item.price}</p>
                             <p className="card-text">Envío gratis a todo el país a partir de $3000</p>
                             <p className="card-text">{item.description}</p>
-                            <ItemCount stock={item.stock} />
+                            
+                            {!counter ? (
+                             <ItemCount stock={item.stock} onAdd={handleOnAdd}/>
+                            ) : (
+                                <Link to={`/cart`}>
+                                <button>Ir al carrito</button>
+                                </Link>
+                            )}
                         </div>                      
                         </div>
                     </div>
