@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useContext } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { products } from './Items';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
+    // const {id, title, description, category, img, price, stock} = item;
+    const {addItem} = useContext(CartContext);
     const [counter, setCounter] = useState(null);
     const handleOnAdd = count => {
 		setCounter(count);
+        addItem(item, count);
 	};
 
     return (
