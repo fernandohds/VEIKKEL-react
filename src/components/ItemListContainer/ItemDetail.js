@@ -27,7 +27,7 @@ const ItemDetail = ({ item }) => {
                             <p className="card-text">{item.description}</p>
                             
                             {!counter ? (
-                             <ItemCount stock={item.stock} onAdd={handleOnAdd}/>
+                             <ItemCount item={item} stock={item.stock} onAdd={handleOnAdd}/>
                             ) : (
                                 <Link to={`/cart`}>
                                 <button>Ir al carrito</button>
