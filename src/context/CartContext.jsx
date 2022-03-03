@@ -1,10 +1,16 @@
-import React, {useState, createContext,} from 'react';
+import React, {useState,useEffect, createContext,} from 'react';
 
 export const CartContext = createContext({});
 
 export const CartContextProvider = ({children}) => {
 	const [cartItems, setCartItems] = useState([]);
+	const [total, setTotal] = useState(0);
+	const [price, setPrice] = useState(0);
 
+	useEffect(() => {
+		setTotal(handleTotal());
+		setPrice(handleTotalPrice());
+	}, [cartItems]);
 
 
 	const addItem = (item, count) => {
@@ -25,7 +31,7 @@ export const CartContextProvider = ({children}) => {
 
 		setCartItems(cartAux);
 	};
-
+	
 	const removeItem = item => {
 		if (isInCart(item)) {
 			
@@ -63,6 +69,42 @@ export const CartContextProvider = ({children}) => {
 			}
 		}
 	};
+	const handleTotalPriceByItem = () => {
+		
+		const newCartItems = cartItems;
+		
+		return newCartItems.map(element =>
+		
+			({
+				...element,
+				price: element.item.price * element.count,
+			}),
+		);
+	};
+
+
+	const handleTotal = () => {
+		
+		const initialValue = 0;
+		return (
+			cartItems
+      && cartItems.reduce((accumulator, currentValue) => accumulator + currentValue.count, initialValue)
+		);
+	};
+
+	
+	const handleTotalPrice = () => {
+		
+		const cartAux = handleTotalPriceByItem();
+		
+		const initialValue = 0;
+		return (
+			cartAux
+    
+      && cartAux.reduce((accumulator, currentValue) => accumulator + currentValue.price, initialValue)
+		);
+	};
+
 
 	return (
 		<CartContext.Provider
@@ -73,6 +115,8 @@ export const CartContextProvider = ({children}) => {
 				clear,
 				isInCart,
 				cartItems,
+				total,
+				price,
 				
 			}}
 		>

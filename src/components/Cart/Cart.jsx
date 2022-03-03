@@ -4,14 +4,14 @@ import {Link} from "react-router-dom"
 import CartAdded from './CartAdded'
 
 function Cart() {
-  const {cartItems, clear} = useContext(CartContext)
+  const {cartItems, clear, price, total} = useContext(CartContext)
 
-  let total = /*Object.values(*/cartItems/*)*/.map((ttl) => ttl.prc).reduce((accumulator, curr) => accumulator + curr, 0);
-    let cantidad = /*Object.values(*/cartItems/*)*/.map((ctn) => ctn.quanty).reduce((accumulator, curr) => accumulator + curr, 0);
-    let cantidadArray = /*Object.values(*/cartItems/*)*/.map((ctn) => ctn.quanty);
+//   let total = cartItems.map((ttl) => ttl.prc).reduce((accumulator, curr) => accumulator + curr, 0);
+//     let cantidad = cartItems.map((ctn) => ctn.quanty).reduce((accumulator, curr) => accumulator + curr, 0);
+//     let cantidadArray = cartItems.map((ctn) => ctn.quanty);
 
 
-    let totalCar = (total * cantidad) / (cantidadArray.length)
+    // let totalCar = (total * cantidad) / (cantidadArray.length)
     
 
   return (
@@ -25,6 +25,7 @@ function Cart() {
                 <div>
                     <h2 >Tu pedido:</h2>
                     <CartAdded itemsToAdd={cartItems}/>
+                    
                     
                     <div>
                         <button onClick={() => clear()} >Vaciar carrito</button>
