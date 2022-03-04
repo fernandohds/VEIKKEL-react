@@ -14,6 +14,23 @@ export default function CartAdded ({itemsToAdd}) {
                     <h5>Id del producto</h5>
                     <p>{item.id}</p>
                 </div>
+                <div >
+                    <img src={item.img} alt =""/>
+                </div>
+                    <div>
+                        <b >{item.name}</b>
+                    </div>
+                    <div>
+                        <h6>Precio: </h6>
+                        <p>{item.price}</p>
+                    </div>
+                    <div>
+                        <h6>Cantidad: </h6>
+                        <p>{item.quanty}</p>
+                    </div>
+                    <div>
+                        <button onClick={() => removeOneItem(item.id)} >Quitar producto</button>
+                    </div>
                 </div>
                 )
         }

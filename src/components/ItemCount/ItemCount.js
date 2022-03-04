@@ -7,7 +7,7 @@ const ItemCount = (props) => {
 
     const [contador, setContador] = useState(1);
 
-    const {addItem, isInCart, cartItem} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
 
     const add = () => {
         if (contador < props.stock) {
@@ -32,7 +32,7 @@ const ItemCount = (props) => {
             <h1>{contador}</h1>
             <button onClick={() => setContador(substract())} type="button" className="btn btn-secondary btn-sm">-</button>     
             {/* <button onClick={() => props.onAdd(contador)} button type="button" className="btn btn-secondary btn-sm btn-ml">Agregar al carrito</button> */}
-            <button className="btn btn-secondary btn-sm btn-ml" onClick={() =>  addItem(props.item, props.contador, props.item.price, props.item.title, props.item.img, props.item.stock)} disabled={props.stock === 0 ? true : false}>{props.stock === 0 ? "sin stock" : "agregar al carrito"}</button>
+            <button className="btn btn-secondary btn-sm btn-ml" onClick={() =>  addItem(props.item, props.contador, props.item.price, props.item.name, props.item.img, props.item.stock)} disabled={props.stock === 0 ? true : false}>{props.stock === 0 ? "sin stock" : "agregar al carrito"}</button>
             </div>     
         </div>
     )
