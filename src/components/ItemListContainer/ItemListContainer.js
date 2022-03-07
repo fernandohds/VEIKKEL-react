@@ -4,53 +4,24 @@ import './ItemListContainer.css'
 import { products } from './Items';
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom";
+import db from '../../service/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import useFireStore from '../../hooks/useFireStore';
 
+const ItemListContainer = () => {
 
-
-const ItemListContainer = (props) => {
-    const { categoryId } = useParams();
-    const [items, setItems] = useState([])
-    const [loader, setLoader] = useState(true);
-
-    useEffect(() => {
-        setLoader(true);
-        const bringProducts = new Promise ((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products)
-            }, 2000);
-
-        })
-        bringProducts
-//         .then((res) => {
-//             console.log(res)
-//              res && setItems(res)
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         }).finally(() => {
-//             setLoader(false);
-//         });
-// }, []);        
-.then((result) => {
-    if(categoryId){
-     const productCategory = result.filter(
-       (product) => product.category.id === parseInt(categoryId) 
-     );
-     return setItems(productCategory);
-    }
-     return setItems(result);
-
+    const {items, load, getData} = useFireStore()
     
-   })
-   .catch((err) => {
-     console.log(err);
-   }).finally(() => {
-                setLoader(false);
-            });
-}, [categoryId]);    
-    return (loader ? <h1>Cargando productos...</h1>:
+    useEffect(() => {
         
-        <ItemList items = {items}/>
+     getData()
+    }, []);
+
+   
+    return (
+        <div>
+        {load? <h1 className="text-center">Cargando productos...</h1> : <ItemList items = {items}/>}
+        </div>
     ) 
 }
 //ver  min 42  de routing

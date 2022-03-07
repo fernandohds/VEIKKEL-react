@@ -2,32 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { products } from './Items';
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router-dom";
+import useFireStore from '../../hooks/useFireStore';
 
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
-    const [productDetail, setProductDetail] = useState({});
+    
+    const {individual, load, getIndividualData} = useFireStore();
 
     useEffect(() => {
-        const getItem = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products);
-            }, 2000);
-        });
-        getItem
-        .then((res) => {
-                const prod = res.find(prod => prod.id == id)
-                setProductDetail(prod);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }, []);
-
+        
+    getIndividualData({id}) 
+    }, [])
     return (
         <>
             <div>
-                <ItemDetail item = {productDetail} /> 
+             {load ? <h1>Espere mientras carga</h1>  : <ItemDetail item = {individual} /> } 
             </div>
 
         </>
