@@ -1,18 +1,18 @@
 import React, { useState, useContext } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { products } from './Items';
+
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
-    const {id, title, description, category, img, price, stock} = item;
-    const {addItem} = useContext(CartContext);
-    const [counter, setCounter] = useState(null);
-    const handleOnAdd = count => {
-		setCounter(count);
-        addItem(item, count);
-	};
+    
+    // const {addItem} = useContext(CartContext);
+    // const [counter, setCounter] = useState(null);
+    // const handleOnAdd = count => {
+	// 	setCounter(count);
+    //     addItem(item, count);
+	// };
 
     return (
         <>
@@ -26,13 +26,13 @@ const ItemDetail = ({ item }) => {
                             <p className="card-text">Envío gratis a todo el país a partir de $3000</p>
                             <p className="card-text">{item.description}</p>
                             
-                            {!counter ? (
-                             <ItemCount item={item} stock={item.stock} onAdd={handleOnAdd}/>
-                            ) : (
+                            
+                             <ItemCount item={item} stock={item.stock}/>
+                            <div>
                                 <Link to={`/cart`}>
-                                <button>Ir al carrito</button>
+                                <button className="btn btn-secondary btn-sm btn-ml">Ir al carrito</button>
                                 </Link>
-                            )}
+                            </div>
                         </div>                      
                         </div>
                     </div>

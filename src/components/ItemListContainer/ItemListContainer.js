@@ -8,19 +8,20 @@ import db from '../../service/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import useFireStore from '../../hooks/useFireStore';
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
 
-    const {items, load, getData} = useFireStore()
+    const { categoryId } = useFireStore()
+    const { products, getData } = useFireStore();
     
     useEffect(() => {
         
-     getData()
-    }, []);
+        getData({ categoryId });
+    }, [products]);
 
    
     return (
         <div>
-        {load? <h1 className="text-center">Cargando productos...</h1> : <ItemList items = {items}/>}
+         <ItemList products={products}/>
         </div>
     ) 
 }

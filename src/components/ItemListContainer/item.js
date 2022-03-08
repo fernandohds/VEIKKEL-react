@@ -3,31 +3,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-const Item = ({ item }) => {
+const Item = ({ product }) => {
     const {id} = useParams();
     
 
     return (
-        <>
+        <Link to={`/item/${product.id}`}>
             <div className="card mb-3">
                     <div className="row no-gutters">
                         <div className="col-md-2">
                         {}
-                            <img src={item.img} className="card-img" alt="..." />
+                            <img src={product.img} className="card-img" alt="..." />
                         
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
-                            <h5 className="card-title">{item.name}</h5>
-                            <p className="card-text">Precio: ${item.price}</p>
-                            <Link to={`/item/${item.id}`}>
+                            <h5 className="card-title">{product.name}</h5>
+                            <p className="card-text">Precio: ${product.price}</p>
+                            
                             <button>Ver más</button>
-                            </Link>
+                           
                         </div>                      
                         </div>
                     </div>
             </div>            
-        </>
+        </Link>
     )
 }
 

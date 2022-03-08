@@ -7,21 +7,19 @@ import useFireStore from '../../hooks/useFireStore';
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
+    const { productsDetail, getById } = useFireStore();
     
-    const {individual, load, getIndividualData} = useFireStore();
-
+    
     useEffect(() => {
-        
-    getIndividualData({id}) 
-    }, [])
-    return (
-        <>
-            <div>
-             {load ? <h1>Espere mientras carga</h1>  : <ItemDetail item = {individual} /> } 
-            </div>
+        getById({ id });
+      }, [productsDetail]);
+    
+      return (
+        <div>
+          <ItemDetail item={productsDetail} />
+        </div>
+      );
+    };
 
-        </>
-    );
-};
 
 export default ItemDetailContainer;
