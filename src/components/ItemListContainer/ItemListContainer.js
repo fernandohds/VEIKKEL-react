@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemListContainer.css'
-import { products } from './Items';
+
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom";
 import db from '../../service/firebase';
@@ -10,12 +10,12 @@ import useFireStore from '../../hooks/useFireStore';
 
 const ItemListContainer = (props) => {
 
-    const { categoryId } = useFireStore()
+    const { category } = useFireStore()
     const { products, getData } = useFireStore();
     
     useEffect(() => {
         
-        getData({ categoryId });
+        getData({ category });
     }, [products]);
 
    

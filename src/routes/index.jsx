@@ -4,6 +4,7 @@ import ItemListContainer from '../components/ItemListContainer/ItemListContainer
 import NavBar from "../components/NavBar/NavBar";
 import Cart from "../components/Cart/Cart";
 import ItemDetailContainer from "../components/ItemListContainer/ItemDetailContainer";
+import Order from '../components/Order/Order';
 
 export const Rutas = () => {
     return (
@@ -15,7 +16,7 @@ export const Rutas = () => {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/category/:categoryId" element={<ItemListContainer />} />
                 <Route path="/item/:id" element={<ItemDetailContainer />} />
-            
+                <Route path="/order" element={<Order />} />
             </Routes>
         
         </BrowserRouter>

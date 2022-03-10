@@ -1,41 +1,59 @@
 import {useContext} from 'react'
 import { CartContext } from '../../context/CartContext'
 import {Link} from "react-router-dom"
-import CartAdded from './CartAdded'
+import Checkout from '../Checkout/Checkout'
+
 
 function Cart() {
-  const {cartItems, clear} = useContext(CartContext)
+  const {cartItems, clear, removeItem, total} = useContext(CartContext)
 
-  return (
+  return cartItems.length ? (
+    <div>
+      <div>
+        <Checkout cartItems={cartItems} total={total} />
+        {cartItems.map((e) => (
+          <section >
+            <div>
+              <div>
+                <button onClick={() => removeItem(e.id)}>               
+                  Eliminar producto
+                </button>
+              </div>
+              <div>
+              <img src={e.img} className="card-img" alt="..." />
+              </div>
+              <div >
+                <div>{e.name}</div>
+                <div >${e.price}</div>
+                <h1>{e.totalPrice}</h1>
+
+                <div>
+                  Cantidad: {e.quantity}
+                </div>
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <div >
+        <h1>Total:{total}</h1>
+      </div>
+      <button  onClick={clear}>
+        Borrar todo
+      </button>
+    </div>
+  ) : (
     <div >
-            {cartItems.length === 0 ? (
-                <div>
-                    <h2 >Carrito vacio</h2>
-                    <Link to={"/"}>Ir al inicio</Link>
-                </div>
-            ) :
-                <div>
-                    <h2 >Tu pedido:</h2>
-                    
-                    <CartAdded itemsToAdd={cartItems}/>
-                    
-                    <div>
-            {/* {cartItems.map((itemsToAdd) => (
-                <CartAdded key ={itemsToAdd}/>
-            ))}; */}
-        </div>
-                    
-                    
-                    <div>
-                        <button onClick={() => clear()} >Vaciar carrito</button>
-                    </div>
-                    <div>
-                        <button>Ir a pagar</button>
-                    </div>
-                </div>
-            }
-        </div>
-  )
-}
+      <div>
+        {" "}
+        <h3 >Carrito vacio</h3>
+        <Link to={"/"} >
+          <button>Ir a comprar</button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default Cart

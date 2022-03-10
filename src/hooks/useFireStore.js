@@ -12,7 +12,7 @@ const useFireStore = () => {
   const [productsDetail, setProductsDetail] = useState({});
   const [orderCart, setOrderCart] = useState([]);
   
-  const getData = async ({ categoryId }) => {
+  const getData = async ({ category }) => {
     try {
       const data = collection(db, "items");
       const col = await getDocs(data);
@@ -20,9 +20,9 @@ const useFireStore = () => {
         (doc) => (doc = { id: doc.id, ...doc.data() })
       );
 
-      if (categoryId) {
+      if (category) {
         const productCategory = result.filter(
-          (product) => product.category.id === categoryId
+          (product) => product.category.id === category
         );
 
         setProducts(productCategory);
