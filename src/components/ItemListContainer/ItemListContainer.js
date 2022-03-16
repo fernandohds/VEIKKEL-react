@@ -1,27 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import ItemCount from '../ItemCount/ItemCount';
+
 import './ItemListContainer.css'
 
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom";
-import db from '../../service/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+
 import useFireStore from '../../hooks/useFireStore';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
-    const { category } = useFireStore()
+    const {  categoryId } = useParams()
     const { products, getData } = useFireStore();
     
     useEffect(() => {
         
-        getData({ category });
-    }, [products]);
+        getData();
+    } );
 
    
     return (
         <div>
-         <ItemList products={products}/>
+         <ItemList products={categoryId === undefined ? products : products.filter((f) => f.category === categoryId)}/>
         </div>
     ) 
 }

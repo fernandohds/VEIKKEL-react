@@ -4,8 +4,10 @@ import useFireStore from "../../hooks/useFireStore";
 import { CartContext } from "../../context/CartContext";
 
 const Checkout = ({ cartItems, total }) => {
-  const { generateOrder } = useFireStore();
+  const { generateOrder, idOrder } = useFireStore();
   const { clear } = useContext(CartContext);
+  const [orderOk, setOrderOk] = useState(false);
+
 
   const [form, setForm] = useState({
     buyer: {
@@ -15,7 +17,7 @@ const Checkout = ({ cartItems, total }) => {
     },
     items: cartItems,
     total: total,
-    date:Date.now()
+    date: Date.now()
   });
 
   const handleChange = (e) => {
@@ -32,16 +34,18 @@ const Checkout = ({ cartItems, total }) => {
     e.preventDefault();
     generateOrder({ data: form });
     clear();
+    
+
   };
   return (
     <div>
-      <Form onSubmit={hanlderSubmit}>
+      { <Form style={{display : orderOk && "none"}} onSubmit={hanlderSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="label">Name</Form.Label>
           <Form.Control
             onChange={handleChange}
             name="name"
-            value={form.buyer.name}
+            value={form.buyer.name || ""}
             type="text"
           />
         </Form.Group>
@@ -50,7 +54,7 @@ const Checkout = ({ cartItems, total }) => {
           <Form.Control
             onChange={handleChange}
             name="phone"
-            value={form.buyer.phone}
+            value={form.buyer.phone || ""}
             type="number"
           />
         </Form.Group>
@@ -59,19 +63,27 @@ const Checkout = ({ cartItems, total }) => {
           <Form.Control
             onChange={handleChange}
             name="email"
-            value={form.buyer.email}
+            value={form.buyer.email || ""}
             type="email"
           />
         </Form.Group>
 
-        <Button
+        <Button onClick={()=> setOrderOk(true)}
           disabled={!form.buyer.name || !form.buyer.phone || !form.buyer.email}
           variant="dark"
           type="submit"
         >
           Comprar
         </Button>
-      </Form>
+      </Form>}
+      {
+        orderOk && <div>
+          <h1 className="text-center">Su compra ha sido exitosa!</h1>
+          <h1 className="text-center">Su numero de orden es: <b>{idOrder}</b></h1>
+
+
+        </div>
+      }
     </div>
   );
 };

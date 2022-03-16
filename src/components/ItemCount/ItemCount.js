@@ -41,7 +41,7 @@ const ItemCount = ({ stock, item }) => {
           className="buttonCart"
           onClick={() => {
             addToCarrito(item, contador);
-            handleShow();
+            
           }}
         >
           Agregar al carrito

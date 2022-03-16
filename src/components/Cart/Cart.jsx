@@ -10,7 +10,7 @@ function Cart() {
   return cartItems.length ? (
     <div>
       <div>
-        <Checkout cartItems={cartItems} total={total} />
+        {/* <Checkout cartItems={cartItems} total={total} /> */}
         {cartItems.map((e) => (
           <section >
             <div>
@@ -42,6 +42,9 @@ function Cart() {
       <button  onClick={clear}>
         Borrar todo
       </button>
+      <Link to={"/checkout"} >
+          <button>Ir a pagar</button>
+        </Link>
     </div>
   ) : (
     <div >

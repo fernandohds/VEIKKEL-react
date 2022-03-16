@@ -6,29 +6,23 @@ import { useNavigate } from "react-router-dom";
 const useFireStore = () => {
 
   const [products, setProducts] = useState([]);
-  const [load, setLoad] = useState(false);
-  const [individual, setIndividual] = useState();
   let navigate = useNavigate();
+  
+  const [idOrder, setIdOrder] = useState();
   const [productsDetail, setProductsDetail] = useState({});
   const [orderCart, setOrderCart] = useState([]);
+  // const [orderOk, setOrderOk] = useState(false);
   
-  const getData = async ({ category }) => {
+  
+  const getData = async () => {
     try {
       const data = collection(db, "items");
       const col = await getDocs(data);
       const result = col.docs.map(
         (doc) => (doc = { id: doc.id, ...doc.data() })
       );
-
-      if (category) {
-        const productCategory = result.filter(
-          (product) => product.category.id === category
-        );
-
-        setProducts(productCategory);
-      } else {
-        setProducts(result);
-      }
+      setProducts(result)
+    
     } catch (err) {
       console.log(err);
     }
@@ -46,9 +40,15 @@ const useFireStore = () => {
   };
 
   const generateOrder = async ({ data }) => {
+
+    
     try {
       const col = collection(db, "orders");
-      await addDoc(col, data);
+      const order = await addDoc(col, data);
+      setIdOrder(order.id)
+      console.log(idOrder);
+      // setOrderOk(true);
+
       data.items.map((e) => {
         updatingStock(e.id, e.stock - e.quantity);
       });
@@ -63,8 +63,8 @@ const useFireStore = () => {
 
     try {
       await updateDoc(itemsOrder, { stock: stock });
-        let path = '/order'
-      navigate(path)
+      //   let path = '/order'
+      // navigate(path)
     } catch (err) {
       console.log(err);
     }
@@ -77,6 +77,8 @@ const useFireStore = () => {
     orderCart,
     generateOrder,
     getById,
+    idOrder,
+    // setOrderOk
   };
 };
 

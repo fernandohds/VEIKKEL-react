@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { products } from './Items';
+
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router-dom";
 import useFireStore from '../../hooks/useFireStore';
@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
     
     useEffect(() => {
         getById({ id });
-      }, [productsDetail]);
+      }, []);
     
       return (
         <div>
