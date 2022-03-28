@@ -1,4 +1,5 @@
-VEIKKEL - Indumentaria deportiva
+VEIKKEL - Indumentaria deportiva.
+
 VEIKKEL es un e-commerce de venta de indumentaria deportiva para adultos, enfocado en indumentaria femenina y masculina.
 
 El sitio web es una SPA (Single Page Application) con:
