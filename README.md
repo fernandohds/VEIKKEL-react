@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+VEIKKEL - Indumentaria deportiva.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+VEIKKEL es un e-commerce de venta de indumentaria deportiva para adultos, enfocado en indumentaria femenina y masculina.
 
-## Available Scripts
+El sitio web es una SPA (Single Page Application) con:
 
-In the project directory, you can run:
+Menú de navegación
 
-### `npm start`
+Home - En esta vista se visualizan todos los productos de la página
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Buzos - En esta vista se visualizan solamente los productos correspondientes a esta categoría
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Camperas - En esta vista se visualizan solamente los productos correspondientes a esta categoría
 
-### `npm test`
+Chombas - En esta vista se visualizan solamente los productos correspondientes a esta categoría
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Conjuntos - En esta vista se visualizan solamente los productos correspondientes a esta categoría
 
-### `npm run build`
+Joggings - En esta vista se visualizan solamente los productos correspondientes a esta categoría
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Remeras - En esta vista se visualizan solamente los productos correspondientes a esta categoría
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Cart - En esta vista se visualizan los productos que el usuario desea comprar, el formulario que debe llenar con sus datos para confirmar la compra y la orden de compra de lo que adquirió.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Vista de detalles: vista con todos los detalles del producto.
 
-### `npm run eject`
+Instalación:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1) Cloná el repositorio
+2) Parado en la raíz del proyecto corré el comando "npm install" para instalar todas las dependencias del proyecto
+3) Usá "npm start" para correr el proyecto, que estará disponible en http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Autor: Fernando Figueroa, 2022.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Proyecto realizado para curso de React en Coderhouse.
