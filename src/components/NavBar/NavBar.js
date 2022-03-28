@@ -3,6 +3,7 @@ import Logo from '../NavBar/logo.png'
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import Listas from './Listas';
+import './NavBar.css'
 
 function NavBar(){
 
@@ -19,34 +20,11 @@ function NavBar(){
                     <img src = {Logo} className = "logo" alt = "imagen logo"/>
                 </Link>
             </div>
-            <div>
+            <div className="menuItems">
 
             <Listas lista= {categoriaMenu}/>
 
-            {/* <ul className="menuItems">
-                <li>
-                <Link to={"/"}>Home</Link>
-                </li>
-                <li>
-                    <Link to={"/category"}>Buzos</Link>
-                </li>
-                <li>
-                    <Link to={"/category"}>Camperas</Link>
-                </li>
-                <li>
-                    <Link to={"/category"}>Chombas</Link>
-                </li>
-                <li>
-                    <Link to={"/category"}>Conjuntos</Link>
-                </li>
-                <li>
-                    <Link to={"/category"}>Joggings</Link>
-                </li>
-                <li>
-                    <Link to={"/category"}>Remeras</Link>
-                </li> */}
-                <CartWidget/>
-            {/* </ul> */}
+            
             </div>
 
         </nav>

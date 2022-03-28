@@ -24,6 +24,5 @@ const ItemListContainer = () => {
         </div>
     ) 
 }
-//ver  min 42  de routing
 
 export default ItemListContainer;

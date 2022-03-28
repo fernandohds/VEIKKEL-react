@@ -1,3 +1,7 @@
+.App {
+  background-color: #b4bcbe; 
+}
+
 .navBar {
   display: flex;
   justify-content: space-between;
