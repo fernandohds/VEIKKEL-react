@@ -24,21 +24,21 @@ const ItemCount = ({ stock, item }) => {
   };
 
   return stock === 0 ? (
-    <div className="ZeroStock">
+    <div>
       <p>Producto sin stock</p>
     </div>
   ) : (
-    <div className="divCount">
-      <button onClick={onRest} className="buttonCount">
+    <div className="">
+      <button onClick={onRest} className="btn btn-secondary btn-sm">
         -
       </button>
-      <input id="input" className="inputCount" value={contador}></input>
-      <button onClick={onAdd} className="buttonCount">
+      <input id="input" className="counterNumber" value={contador}></input>
+      <button onClick={onAdd} className="btn btn-secondary btn-sm">
         +
       </button>
       <div>
         <button
-          className="buttonCart"
+          className="btn btn-secondary btn-sm btn-ml buttonCart"
           onClick={() => {
             addToCarrito(item, contador);
             

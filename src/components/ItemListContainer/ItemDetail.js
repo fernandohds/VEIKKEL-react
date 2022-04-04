@@ -10,9 +10,9 @@ const ItemDetail = ({ item }) => {
 
     return (
         <>
-            <div className="card mb-3">
+            <div className="card mb-3 ">
                     <div className="row no-gutters">
-                    <div className="col-md-2">
+                    <div className="col-md-2 elMargen ">
                             <img src={item.img} className="card-img" alt="..." />
                     </div>        
                             <div className="col-md-8">

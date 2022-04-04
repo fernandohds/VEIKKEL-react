@@ -21,7 +21,7 @@ const Item = ({ product }) => {
                             <h5 className="card-title">{product.name}</h5>
                             <p className="card-text">Precio: ${product.price}</p>
                             
-                            <button>Ver más</button>
+                            <button className="btn btn-secondary btn-sm btn-ml">Ver más</button>
                            
                         </div>                      
                         </div>
